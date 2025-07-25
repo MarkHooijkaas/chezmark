@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CHEZMARK=$(cd $(dirname ${BASH_SOURCE[0]}); cd ..; pwd)
+
+bashrc=~/.bashrc
+inc_file=$CHEZMARK/bash/bashrc-main.inc
+
+found=$(grep -E "^[^#]*source $inc_file" $bashrc)
+
+if [ -z "$found" ] ; then
+  echo modifying $bashrc to include $inc_file
+  cat >>$bashrc <<EOF
+if [ -f $inc_file ]; then source $inc_file; fi
+EOF
+else
+  echo $bashrc already includes $inc_file
+fi
