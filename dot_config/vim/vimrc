@@ -1,0 +1,5 @@
+map <C-X> :exit<CR>
+imap <C-X> <Esc>:exit<CR>
+
+map <C-Q> <Esc>:q!<CR>
+imap <C-Q> <Esc>:q!<CR>
