@@ -14,8 +14,14 @@ function chezmark_debug() {
 
 
 function chezmark_include() {
-    chezmark_verbose including $1
-    source $1
+    if [ -f  $1 ]; then
+      chezmark_verbose including $1
+      source $1
+      return 0
+    else
+      chezmark_verbose skipping $1
+      return 1
+    fi
 }
 
 if [ -z "${CONTAINER_ID}" ]; then
