@@ -12,7 +12,6 @@ function chezmark_debug() {
     fi
 }
 
-
 function chezmark_include() {
     if [ -f  $1 ]; then
       chezmark_verbose including $1
@@ -23,6 +22,15 @@ function chezmark_include() {
       return 1
     fi
 }
+
+function chezmark_include_all() {
+  if ${CHEZMARK_INCLUDE_ALL:true}; then
+    for f in $CHEZMARK_HOME/bash/bashrc.d/*; do
+      chezmark_include $f
+    done
+  fi
+}
+
 
 if [ -z "${CONTAINER_ID}" ]; then
   CHEZMARK_PROFILE=$USER@$HOSTNAME

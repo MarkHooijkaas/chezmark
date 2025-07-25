@@ -1,3 +1,10 @@
 
+CHEZMARK_VERBOSE=true
 CHEZMARK_DEBUG=true
-#CHEZMARK_INCLUDE_ALL=false
+
+
+# If you want to control, what is include or when you can do something like
+# CHEZMARK_INCLUDE_ALL=false
+# echo before include_all
+# chezmark_include_all
+# echo after include_all
