@@ -6,6 +6,12 @@ function chezmark_verbose() {
         echo $@
     fi
 }
+function chezmark_debug() {
+    if ${CHEZMARK_DEBUG:-false}; then
+        echo $@
+    fi
+}
+
 
 function chezmark_include() {
     chezmark_verbose including $1
