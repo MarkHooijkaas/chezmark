@@ -6,4 +6,4 @@ function calc_kubeconfig() {
     export KUBECONFIG="$KUBECONFIG:$file"
   done
 }
-calc_kubeconfig
+#calc_kubeconfig
