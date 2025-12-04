@@ -6,7 +6,7 @@ fi
 _chezmark_find_home() {
     local dir
     if dir="$(grep sourceDir ~/.config/chezmoi/chezmoi.yaml)"; then
-        echo "$dir"
+        echo "${dir##sourceDir: }"
         return 0
     fi
     # find in some location
@@ -20,7 +20,7 @@ _chezmark_find_home() {
 }
 
 CHEZMARK_HOME=$(_chezmark_find_home)
-if [[ ! -z ${CHEZMARK_HOME}]]; then
+if [[ ! -z ${CHEZMARK_HOME} ]]; then
     echo using chezmark dir $CHEZMARK_HOME
     . "${CHEZMARK_HOME}/bash/bashrc-main.inc"
 fi
