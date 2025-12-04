@@ -1,0 +1,9 @@
+
+[keys.normal]
+C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+C-x = ":x"
+C-q = ":q!"
+
+[keys.insert]
+C-x = ["normal_mode", ":x"]
+C-q = ["normal_mode", ":q!"]
