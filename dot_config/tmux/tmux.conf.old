@@ -1,0 +1,29 @@
+# remap prefix from 'C-b' to 'C-a'
+#unbind C-b
+#set-option -g prefix C-a
+#bind-key C-a send-prefix
+set-option -g prefix2 C-space
+
+bind -n M-right select-pane -R
+bind -n M-left select-pane -L
+bind -n M-up    select-pane -U
+bind -n M-down  select-pane -D
+bind -n M-z     resize-pane -Z
+
+# split panes using | and -
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+# reload config file (change file location to your the tmux.conf you want to use)
+bind r source-file ~/.tmux.conf
+
+# Enable mouse control (clickable windows, panes, resizable panes)
+set -g mouse on
+set -g mouse-select-window on
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+
+#bind C-c run "tmux save-buffer - | xclip -i -sel clipboard"
+#bind C-v run "tmux set-buffer "$(xclip -o -sel clipboard)"; tmux paste-buffer"

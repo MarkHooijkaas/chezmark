@@ -1,0 +1,10 @@
+session_name: config
+start_directory: "~/work/mark"
+
+windows:
+  - window_name: home
+    shell_command_before: cd
+  - window_name: mark
+    shell_command_before: cd ~/work/mark
+  - window_name: work
+    shell_command_before: cd ~/work/
