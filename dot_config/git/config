@@ -1,0 +1,45 @@
+[user]
+    name = Mark Hooijkaas
+    email = mark@hooijkaas.net
+    #email = mark@kisst.org
+
+[init]
+    defaultBranch = main
+
+[alias]
+    c = commit -v
+    co = checkout
+    cob = checkout -b
+    coi = !git checkout $(git branch --sort=committerdate | fzf)
+    s = status
+    br = branch
+    d = diff
+    dd = diff --cached
+    l = log --oneline --graph
+    #cp = cherry-pick
+    ps = push
+    pl = pull
+    #pb = pull --rebase
+    unstage = reset HEAD --
+    last = log -1 HEAD
+
+[core]
+#    pager = delta
+    editor = vi -c 'startinsert'
+
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    line-numbers = true
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color
+    syntax-theme = Catppuccin-mocha
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+    submodule = log
