@@ -5,11 +5,11 @@ export CHEZMARK_HOME
 
 source $CHEZMARK_HOME/bash/chezmark-init.inc
 
-chezmark_include .config/local/bashrc-$CHEZMARK_PROFILE.inc
-chezmark_include $CHEZMARK_HOME/bash/local/bashrc-$CHEZMARK_PROFILE.inc
+_chezmark_include .config/local/bashrc-$CHEZMARK_PROFILE.inc
+_chezmark_include $CHEZMARK_HOME/bash/local/bashrc-$CHEZMARK_PROFILE.inc
 
 if ${CHEZMARK_INCLUDE_ALL:true}; then
   for f in $CHEZMARK_HOME/bash/bashrc.d/*; do
-    chezmark_include $f
+    _chezmark_include $f
   done
 fi
