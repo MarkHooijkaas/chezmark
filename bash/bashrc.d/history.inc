@@ -23,14 +23,14 @@ HISTCONTROL=ignorespace:ignoredups
 #}
 
 
-mkdir -p ${XDG_STATE_HOME}/chezmark
-CHEZMARK_BASH_ETERNAL_HISTORY=$XDG_STATE_HOME/chezmark/bash_eternal_history
+mkdir -p ${XDG_STATE_HOME}/chez
+CHEZ_BASH_ETERNAL_HISTORY=$XDG_STATE_HOME/chez/bash_eternal_history
 
 
 export HISTTIMEFORMAT="%y/%m/%d %H:%M:%S%t"
-PROMPT_COMMAND='history 1 >>$CHEZMARK_BASH_ETERNAL_HISTORY'
+PROMPT_COMMAND='history 1 >>$CHEZ_BASH_ETERNAL_HISTORY'
 #PROMPT_COMMAND="_bash_history_sync;$PROMPT_COMMAND"
 
-alias h='grep <$CHEZMARK_BASH_ETERNAL_HISTORY'
-#alias hm='grep <$CHEZMARK_BASH_ETERNAL_HISTORY | less'
-#alias ht='grep <$CHEZMARK_BASH_ETERNAL_HISTORY | tail'
+alias h='grep <$CHEZ_BASH_ETERNAL_HISTORY'
+#alias hm='grep <$CHEZ_BASH_ETERNAL_HISTORY | less'
+#alias ht='grep <$CHEZ_BASH_ETERNAL_HISTORY | tail'

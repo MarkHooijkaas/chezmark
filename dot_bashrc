@@ -3,7 +3,7 @@ if [[ -f /etc/skel/.bashrc ]]; then
     . /etc/skel/.bashrc
 fi
 
-_chezmark_find_home() {
+_chez_find_home() {
     local dir
     if dir="$(grep sourceDir ~/.config/chezmoi/chezmoi.yaml)"; then
         echo "${dir##sourceDir: }"
@@ -19,8 +19,8 @@ _chezmark_find_home() {
     return 1
 }
 
-CHEZMARK_HOME=$(_chezmark_find_home)
-if [[ ! -z ${CHEZMARK_HOME} ]]; then
-    echo using chezmark dir $CHEZMARK_HOME
-    . "${CHEZMARK_HOME}/bash/bashrc-main.inc"
+CHEZ_HOME=$(_chez_find_home)
+if [[ ! -z ${CHEZ_HOME} ]]; then
+    echo using chez dir $CHEZ_HOME
+    . "${CHEZ_HOME}/bash/bashrc-main.inc"
 fi

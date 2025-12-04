@@ -28,6 +28,6 @@ complete -F _complete_alias gr
 alias os='grep PRETTY /etc/os-release'
 alias reload="source ~/.bashrc"
 
-_chezmark_alias b brew
-_chezmark_alias d distrobox
-_chezmark_alias cm chezmoi
+_chez_alias b brew
+_chez_alias d distrobox
+_chez_alias cm chezmoi
