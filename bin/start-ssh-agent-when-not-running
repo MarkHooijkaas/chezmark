@@ -2,15 +2,14 @@
 set -e
 
 function dotfile_verbose() {
-    if ${DOTFILE_VERBOSE:-false}; then
+    if ${DOTFILE_VERBOSE:-true}; then
         echo $@
     fi
 }
 
-socket=${1:-~/.ssh/sockets/ssh-agent}
+socket=${1:-~/.ssh/ssh_auth_socket}
 mkdir -p $(dirname $socket)
 pid=$(ps ux| grep "ssh-agent -a $socket")
-echo pid
 
 if [ -S  $socket ]; then
     dotfile_verbose ssh-agent already running on socket $socket, with following keys:
@@ -19,3 +18,4 @@ else
     ssh-agent -a $socket >/dev/null
     dotfile_verbose ssh-agent started on socket $socket
 fi
+export SSH_AUTH_SOCK
