@@ -2,7 +2,7 @@
 : ${XDG_STATE_HOME:=~/.local/state}
 
 function _chezmark_verbose() {
-    if ${CHEZMARK_VERBOSE:-true}; then
+    if ${CHEZMARK_VERBOSE:-false}; then
         echo $@
     fi
 }

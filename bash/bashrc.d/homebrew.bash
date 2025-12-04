@@ -13,7 +13,7 @@ function _brew-remove() {
 
 function brew-remove() {
   _brew-remove
-  echo $PATH
+  _chezmark_verbose $PATH
 }
 
 function brew-append() {
@@ -21,7 +21,7 @@ function brew-append() {
   export PATH=$PATH:/home/linuxbrew/.linuxbrew/sbin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
   export MANPATH=$MANPATH:/home/linuxbrew/.linuxbrew/share/man
   export INFOPATH=$INFOPATH:/home/linuxbrew/.linuxbrew/share/info
-  echo $PATH
+  _chezmark_verbose  $PATH
 }
 
 function brew-prepend() {
@@ -29,7 +29,7 @@ function brew-prepend() {
   export PATH=/home/linuxbrew/.linuxbrew/sbin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
   export MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
   export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
-  echo $PATH
+  _chezmark_verbose $PATH
 }
 
 if [ -d /home/linuxbrew ]; then

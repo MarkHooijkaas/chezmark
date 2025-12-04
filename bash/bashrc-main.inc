@@ -1,6 +1,5 @@
 
 : ${CHEZMARK_HOME:=$(dirname $(dirname ${BASH_SOURCE[0]}))}
-#CHEZMARK_HOME=$(cd $(dirname ${BASH_SOURCE[0]}); cd ..; pwd)
 export CHEZMARK_HOME
 
 source $CHEZMARK_HOME/bash/chezmark-init.inc

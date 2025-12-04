@@ -1,6 +1,6 @@
 
-CHEZMARK_VERBOSE=true
-CHEZMARK_DEBUG=true
+: ${CHEZMARK_VERBOSE:=false}
+: ${CHEZMARK_DEBUG:=false}
 
 
 # If you want to control, what is include or when you can do something like
