@@ -1,0 +1,26 @@
+if [[ -f /etc/skel/.bashrc ]]; then
+    echo loading /etc/skel/.bashrc
+    . /etc/skel/.bashrc
+fi
+
+_chezmark_find_home() {
+    local dir
+    if dir="$(grep sourceDir ~/.config/chezmoi/chezmoi.yaml)"; then
+        echo "$dir"
+        return 0
+    fi
+    # find in some location
+    for dir in ~/work/chezmark ~/work/mark/chezmark ~/.local/share/chezmoi/; do
+        if [[ -d $dir ]]; then
+            echo "$dir"
+            return 0
+        fi
+    done
+    return 1
+}
+
+CHEZMARK_HOME=$(_chezmark_find_home)
+if [[ ! -z ${CHEZMARK_HOME}]]; then
+    echo using chezmark dir $CHEZMARK_HOME
+    . "${CHEZMARK_HOME}/bash/bashrc-main.inc"
+fi
