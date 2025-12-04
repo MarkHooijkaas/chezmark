@@ -1,5 +1,5 @@
 if  command -v chezmoi >/dev/null 2>&1; then
-    alias ch=chezmoi
-    alias ce='chezmoi edit'
-    alias ca='chezmoi apply'
+    _chezmark_alias ch chezmoi
+    _chezmark_alias ce 'chezmoi edit --apply'
+    _chezmark_alias ca 'chezmoi apply'
 fi
