@@ -1,4 +1,4 @@
-export GIT_EDITOR="vi +startinsert"
+export GIT_EDITOR="vim +startinsert"
 
 alias g=git
 alias gch="git checkout"
