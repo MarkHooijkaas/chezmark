@@ -31,3 +31,4 @@ alias reload="source ~/.bashrc"
 _chez_alias b brew
 _chez_alias d distrobox
 _chez_alias cm chezmoi
+alias z='flatpak run dev.zed.Zed'
