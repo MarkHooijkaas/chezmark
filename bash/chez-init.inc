@@ -1,6 +1,8 @@
 : ${XDG_DATA_HOME:=~/.local/share}
 : ${XDG_STATE_HOME:=~/.local/state}
 
+declare -A _chez_skip_include_map=()
+
 function _chez_verbose() {
     if ${CHEZ_VERBOSE:-false}; then
         echo $@
@@ -12,8 +14,13 @@ function _chez_debug() {
     fi
 }
 
+function chez-skip-include() { _chez_skip_include_map[$1]=true; }
+
 function _chez_include() {
-    if [ -f  $1 ]; then
+    if ${_chez_skip_include_map[$1]:-false}; then
+        _chez_verbose skipping $1
+        return 0
+    elif [ -f  $1 ]; then
       _chez_verbose including $1
       source $1
       return 0
