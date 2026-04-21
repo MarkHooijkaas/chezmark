@@ -13,6 +13,7 @@ alias m=less
 alias e="vi +startinsert"
 alias gr='grep -r --exclude-dir=.git/'
 #alias gr='grep -r --exclude-dir=.git/objects'
+alias Z=zed
 
 alias pg='pgrep -f'
 

@@ -3,6 +3,7 @@ export GIT_EDITOR="vim +startinsert"
 alias g=git
 alias gch="git checkout"
 alias gco="git commit"
+alias gpc='git pull;git commit'
 alias gs="git status"
 alias gd="git diff"
 alias gss='git submodule foreach git status'
