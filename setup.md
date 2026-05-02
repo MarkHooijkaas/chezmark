@@ -18,6 +18,13 @@ of
     rmdir .local/share/chezmoi
     ln -s  ~/work/mark/chezmark .local/share/chezmoi
 
+# fish installeren
+https://vinh.dev/writing/set-up-fish-shell-macos
+of sudo sh -c 'echo "$(command -v fish)" >> /etc/shells'
+of command -v fish | sudo tee -a /etc/shells
+chsh -s "$(command -v fish)"
+set -U fish_user_paths $(brew --prefix)/bin $fish_user_paths
+
 
 firefox default zoom 150%
 
