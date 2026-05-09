@@ -25,7 +25,7 @@
 
 [core]
 #    pager = delta
-    editor = vi -c 'startinsert'
+    editor = vim +startinsert
 
 
 [interactive]
@@ -43,3 +43,7 @@
 [diff]
     colorMoved = default
     submodule = log
+[pull]
+	ff = only
+[push]
+	autoSetupRemote = true
