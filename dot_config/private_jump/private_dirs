@@ -1,0 +1,8 @@
+fish   ~/.config/fish
+helix  ~/.config/helix
+chez   ~/.config/chezmark
+
+work ~/work
+karmah ~/work/kisst/karmah
+apps ~/work/rug/gitops-apps
+infra ~/work/rug/gitops-infra
