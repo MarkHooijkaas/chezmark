@@ -1,6 +1,6 @@
 [keys.normal]
 #C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
-C-x = ":x"
+C-x = [":wa", ":x"]
 C-q = ":q"
 C-S-q = ":q!"
 C-backspace  = "delete_word_backward"
@@ -28,7 +28,7 @@ C-S-left = "move_prev_long_word_start"
 C-S-right = "move_next_long_word_end"
 
 [keys.insert]
-C-x = ["normal_mode", ":x"]
+C-x = ["normal_mode", ":wa", ":x"]
 C-q = ["normal_mode", ":q"]
 C-S-q = ["normal_mode", ":q!"]
 C-space = "completion"
