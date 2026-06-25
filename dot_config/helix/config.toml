@@ -26,8 +26,8 @@ S-left = "extend_char_left"
 S-right = "extend_char_right"
 S-up = "extend_line_up"
 S-down = "extend_line_down"
-C-right= "goto_next_buffer"
-C-left= "goto_previous_buffer"
+A-right= "goto_next_buffer"
+A-left= "goto_previous_buffer"
 
 
 # https://www.reddit.com/r/HelixEditor/comments/1jdmfke/lazygit_open_file_in_helix_when_pressing_e/
