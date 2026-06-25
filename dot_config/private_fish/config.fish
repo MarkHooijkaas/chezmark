@@ -9,4 +9,5 @@ if status is-interactive
     abbr m less
     abbr --position anywhere mm "| less"
     zoxide init fish | source
+    bind ctrl-z 'fg 2>/dev/null; commandline -f repaint' # https://github.com/helix-editor/helix/wiki/Recipes#fish
 end

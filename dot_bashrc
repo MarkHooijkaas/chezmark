@@ -1,4 +1,3 @@
-# only run in interactive shell
 case $- in
     *i*) ;;
       *) return;;
@@ -11,12 +10,9 @@ fi
 
 _chez_find_home() {
     local dir
-    local config_file=~/.config/chezmoi/chezmoi.yaml
-    if [[ -f $config_file ]]; then
-        if dir="$(grep sourceDir $config_file)"; then
-            echo "${dir##sourceDir: }"
-            return 0
-        fi
+    if dir="$(grep sourceDir ~/.config/chezmoi/chezmoi.yaml)"; then
+        echo "${dir##sourceDir: }"
+        return 0
     fi
     # find in some location
     for dir in ~/work/chezmark ~/work/mark/chezmark ~/.local/share/chezmoi/; do
@@ -33,8 +29,6 @@ if [[ ! -z ${CHEZ_HOME} ]]; then
     echo using chez dir $CHEZ_HOME
     . "${CHEZ_HOME}/bash/bashrc-main.inc"
 fi
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
-#if [ -f $(brew --prefix)/etc/bash_completion ]; then
-#    . $(brew --prefix)/etc/bash_completion
-#fi
-if [ -f /Users/mark/work/mark/chezmark/bash/bashrc-main.inc ]; then source /Users/mark/work/mark/chezmark/bash/bashrc-main.inc; fi
+export PATH="$(aqua root-dir)/bin:$PATH"
+export EDITOR=hx
+alias y=yazi
