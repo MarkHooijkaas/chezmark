@@ -32,3 +32,4 @@ fi
 export PATH="$(aqua root-dir)/bin:$PATH"
 export EDITOR=hx
 alias y=yazi
+alias cm=chezmoi
