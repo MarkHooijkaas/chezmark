@@ -5,6 +5,7 @@ C-x = ["normal_mode", ":wa", ":x"] # was completion?
 C-q = ["normal_mode", ":q"]
 C-space = "completion"
 # Ctrl-r <register>: Insert the contents of a specific register
+C-p = "insert_register"
 
 C-left  = "move_prev_word_start"
 C-right = ["move_next_word_start"] #, "extend_char_right"]
@@ -85,7 +86,7 @@ C-g = [
   ":redraw",
   ":reload-all"
 ]
-C-p = [":sh git pull", ":reload-all"]
+#C-p = [":sh git pull", ":reload-all"]
 
 # https://www.reddit.com/r/HelixEditor/comments/17tjcb2/add_next_occurence_of_current_word_to_the/
 # make sure there is only one selection, select word under cursor, set search to selection, then switch to select mode
