@@ -9,8 +9,8 @@ C-p = "insert_register"
 
 C-left  = "move_prev_word_start"
 C-right = ["move_next_word_start"] #, "extend_char_right"]
-C-home  = "goto_line"
-C-end   = "goto_file_end"
+C-home  = "@<esc>gg"
+C-end   = ["normal_mode", "goto_file_end"]
 
 backspace   = "delete_char_backward"
 C-backspace = "delete_word_backward"
@@ -22,7 +22,8 @@ C-A-s = ":wa" # Maps Ctrl-s to the typable command :w which is an alias for :wri
 C-x = [":wa", ":x"] # was decrement
 C-q = ":q"
 C-a = "select_all"  # was increment
-C-r = [":reload-all", ":config-reload"]
+# C-r = ":reload-all" # This is dangerous because it will overwrite any changes
+C-r = [":wa",":config-reload"]
 C-h = "command_palette"
 
 # https://www.reddit.com/r/HelixEditor/comments/1iearpt/could_you_kindly_share_any_new_tricks_or/
@@ -34,7 +35,7 @@ S-tab = "shrink_selection"
 
 C-left  = "move_prev_word_start"
 C-right = ["move_next_word_start", "extend_char_right"]
-C-home  = "goto_line"
+C-home  = "@gg"
 C-end   = "goto_last_line"
 
 C-k = "kill_to_line_end"
