@@ -52,6 +52,8 @@ S-A-up    = "extend_line_up"
 S-A-down  = "extend_line_down"
   A-right = "goto_next_buffer"
   A-left  = "goto_previous_buffer"
+C-S-pagedown = "goto_next_buffer"
+C-S-pageup  = "goto_previous_buffer"
   L       = "goto_next_buffer"
   H       = "goto_previous_buffer"
 
