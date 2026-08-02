@@ -16,6 +16,7 @@ backspace   = "delete_char_backward"
 C-backspace = "delete_word_backward"
 del         = "delete_char_forward"
 C-del       = "delete_word_forward"
+C-k = ["normal_mode", "extend_to_line_end","delete_selection", "insert_mode"]
 
 [keys.normal]
 C-A-s = ":wa" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
@@ -38,7 +39,7 @@ C-right = ["move_next_word_start", "extend_char_right"]
 C-home  = "@gg"
 C-end   = "goto_last_line"
 
-C-k = "kill_to_line_end"
+C-k = ["extend_to_line_end","delete_selection"]
 C-u = "kill_to_line_start"
 C-f = ["select_all","select_regex"]
 A-d = ["select_line_below", "delete_selection"]
