@@ -11,8 +11,13 @@ if status is-interactive
     abbr cmd chezmoi diff
     abbr cmap chezmoi apply
     abbr cmu chezmoi update
+
     # https://www.reddit.com/r/fishshell/comments/1he9bd8/what_are_you_abbreviations/
     abbr --set-cursor='%' -- gcm 'git commit -m "%"'
+    abbr --position anywhere --add p0 "&> /dev/null" # Pipe everything to /dev/null
+    abbr --position anywhere --add pm "| less"
+    abbr --position anywhere --add py " -o yaml | less"
+
     abbr m less
     abbr --position anywhere mm "| less"
     zoxide init fish | source
