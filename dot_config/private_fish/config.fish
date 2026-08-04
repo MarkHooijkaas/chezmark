@@ -1,11 +1,18 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
     abbr cm chezmoi
-    abbr cg chezmoi git
-    abbr cgs chezmoi git status
-    abbr cgc chezmoi git commit
-    abbr j z
-    abbr jj zi
+    abbr cmg chezmoi git
+    abbr cmgs chezmoi git status
+    abbr cmgc chezmoi git commit
+    abbr cmgp chezmoi git push
+    abbr cmcd chezmoi cd
+    abbr cmr chezmoi re-add
+    abbr cma chezmoi add
+    abbr cmd chezmoi diff
+    abbr cmap chezmoi apply
+    abbr cmu chezmoi update
+    # https://www.reddit.com/r/fishshell/comments/1he9bd8/what_are_you_abbreviations/
+    abbr --set-cursor='%' -- gcm 'git commit -m "%"'
     abbr m less
     abbr --position anywhere mm "| less"
     zoxide init fish | source
