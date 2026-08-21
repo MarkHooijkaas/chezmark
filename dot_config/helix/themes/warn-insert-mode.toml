@@ -1,0 +1,10 @@
+inherits = "default"
+# "ui.selection" = { fg = "#ffffff", bg = "muted-violet" }
+
+# "ui.statusline.normal" = { fg = "black", bg = "red", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "black", bg = "red", modifiers = ["bold"] }
+# "ui.statusline.select" = { fg = "black", bg = "blue", modifiers = ["bold"] }
+
+# "ui.cursor.primary.normal" = { fg = "#ffffff", bg = "neon-cyan" }
+"ui.cursor.primary.insert" = { fg = "#000000", bg = "#ff0000" }
+# "ui.cursor.primary.select" = { fg = "#ffffff", bg = "muted-violet" }
