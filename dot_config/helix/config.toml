@@ -33,10 +33,8 @@ C-z = [":write-all", "suspend"]
 # goto word met andere letters
 ret   = "goto_word"
 C-ret = "extend_to_word"
-# tab   = "expand_selection"
-# S-tab = "shrink_selection"
-tab   = "indent"
-S-tab = "unindent"
+tab   = "goto_next_buffer"
+S-tab = "goto_previous_buffer"
 
 C-left  = "move_prev_word_start"
 C-right = ["move_next_word_start", "extend_char_right"]
