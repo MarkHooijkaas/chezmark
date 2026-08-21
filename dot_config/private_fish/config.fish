@@ -13,7 +13,7 @@ if status is-interactive
     abbr cmu chezmoi update
 
     # https://www.reddit.com/r/fishshell/comments/1he9bd8/what_are_you_abbreviations/
-    abbr --set-cursor='%' -- gcm 'git commit -m "%"'
+    abbr --set-cursor='%' -- gcm 'git commit -m "%" -a'
     abbr --position anywhere --add p0 "&> /dev/null" # Pipe everything to /dev/null
     abbr --position anywhere --add pm "| less"
     abbr --position anywhere --add py " -o yaml | less"
@@ -27,4 +27,10 @@ if status is-interactive
     abbr kp kubectl --context ifed
     abbr ke kubectl --context ifed-exam
     abbr ked kubectl --context edusupport
+
+    abbr gclrug --set-cursor='%' git clone git@github.com:rijksuniversiteit-groningen/%.git
+    abbr gclm --set-cursor='%' git clone git@github.com:MarkHooijkaas/%.git
+    abbr gclk --set-cursor='%' git clone git@github.com:kisst-org/%.git
+
+    set -gx EDITOR hx
 end
