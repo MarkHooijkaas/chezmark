@@ -17,6 +17,7 @@ C-backspace = "delete_word_backward"
 del         = "delete_char_forward"
 C-del       = "delete_word_forward"
 C-k = ["normal_mode", "extend_to_line_end","delete_selection", "insert_mode"]
+C-z = ["normal_mode", ":write-all", "suspend"]
 
 [keys.normal]
 C-A-s = ":wa" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
@@ -24,15 +25,18 @@ C-x = [":wa", ":x"] # was decrement
 C-q = ":q"
 C-a = "select_all"  # was increment
 # C-r = ":reload-all" # This is dangerous because it will overwrite any changes
-C-r = [":wa",":config-reload"]
+C-r = [":wa",":reload-all", ":config-reload"] # TODO: what if files have changed by git, or else?
 C-h = "command_palette"
+C-z = [":write-all", "suspend"]
 
 # https://www.reddit.com/r/HelixEditor/comments/1iearpt/could_you_kindly_share_any_new_tricks_or/
 # goto word met andere letters
 ret   = "goto_word"
 C-ret = "extend_to_word"
-tab   = "expand_selection"
-S-tab = "shrink_selection"
+# tab   = "expand_selection"
+# S-tab = "shrink_selection"
+tab   = "indent"
+S-tab = "unindent"
 
 C-left  = "move_prev_word_start"
 C-right = ["move_next_word_start", "extend_char_right"]
