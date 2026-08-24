@@ -23,6 +23,7 @@ C-z = ["normal_mode", ":write-all", "suspend"]
 C-A-s = ":wa" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
 C-x = [":wa", ":x"] # was decrement
 C-q = ":q"
+C-w = ":buffer-close"
 C-a = "select_all"  # was increment
 # C-r = ":reload-all" # This is dangerous because it will overwrite any changes
 C-r = [":wa",":reload-all", ":config-reload"] # TODO: what if files have changed by git, or else?
