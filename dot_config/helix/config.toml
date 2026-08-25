@@ -29,6 +29,7 @@ C-a = "select_all"  # was increment
 C-r = [":wa",":reload-all", ":config-reload"] # TODO: what if files have changed by git, or else?
 C-h = "command_palette"
 C-z = [":write-all", "suspend"]
+S-x = "select_line_above"
 
 # https://www.reddit.com/r/HelixEditor/comments/1iearpt/could_you_kindly_share_any_new_tricks_or/
 # goto word met andere letters
