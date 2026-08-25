@@ -130,7 +130,7 @@ bufferline = "always"
 
 [editor.cursor-shape]
 #insert = "bar"
-insert = "block"
+insert = "bar"
 normal = "block"
 select = "underline"
 
