@@ -80,6 +80,8 @@ C-y = [
 ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty',
 ':open %sh{cat /tmp/unique-file}',
 ':redraw',
+':set mouse false', # reset mouse, see https://github.com/helix-editor/helix/wiki/Recipes
+':set mouse true',
 ]
 
 
@@ -92,6 +94,8 @@ C-g = [
   ":insert-output lazygit",
   ":buffer-close!",
   ":redraw",
+  ":set mouse false", # reset mouse, see https://github.com/wildestwest/dotfiles/blob/main/helix/config.toml
+  ":set mouse true",
   ":reload-all"
 ]
 #C-p = [":sh git pull", ":reload-all"]
