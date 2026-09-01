@@ -31,6 +31,8 @@ if status is-interactive
     abbr gclrug --set-cursor='%' git clone git@github.com:rijksuniversiteit-groningen/%.git
     abbr gclm --set-cursor='%' git clone git@github.com:MarkHooijkaas/%.git
     abbr gclk --set-cursor='%' git clone git@github.com:kisst-org/%.git
+    abbr gg lazygit
+    abbr fcr source ~/.config/fish/config.fish # fish/config reload
 
     set -gx EDITOR hx
 end
