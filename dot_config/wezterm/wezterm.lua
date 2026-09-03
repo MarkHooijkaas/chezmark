@@ -1,7 +1,8 @@
 local wezterm = require 'wezterm'
-local config = wezterm.config_builder()
 
--- Set your startup font size here (e.g., 14.0)
-config.font_size = 14.0
+local config = {}
+
+-- Use Fish as the default shell in login mode
+config.default_prog = { '/home/linuxbrew/.linuxbrew/bin/fish', '-l' }
 
 return config
