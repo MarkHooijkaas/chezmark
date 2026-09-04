@@ -3,6 +3,8 @@ local mux = wezterm.mux
 local act = wezterm.action
 local config = wezterm.config_builder()
 
+config.automatically_reload_config = false
+
 -- see: https://fredrikaverpil.github.io/blog/2024/10/20/session-management-in-wezterm-without-tmux/
 wezterm.on("update-right-status", function(window, pane)
   window:set_right_status(window:active_workspace())
@@ -11,11 +13,12 @@ local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/s
 
 -- keymaps
 local keys={}
-table.insert(keys, { key = "s", mods = "CTRL|SHIFT", action = workspace_switcher.switch_workspace() })
+-- table.insert(keys, { key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentPane() })
+-- table.insert(keys, { key = "s", mods = "CTRL|SHIFT", action = workspace_switcher.switch_workspace() })
 table.insert(keys, { key = "y", mods = "CTRL|SHIFT", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) })
 -- table.insert(keys, { key = "[", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) })
 -- table.insert(keys, { key = "]", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) })
-table.insert(keys, { key = "k", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace({ name='~/work/kisst/karmah'}) })
+table.insert(keys, { key = "k", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace({ name='karmah', spawn={cwd=wezterm.home_dir .. '/work/kisst/karmah'}}) })
 table.insert(keys, { key = 'n', mods = 'CTRL', action = act.SwitchWorkspaceRelative(1) })
 table.insert(keys, { key = 'p', mods = 'CTRL', action = act.SwitchWorkspaceRelative(-1) })
 
