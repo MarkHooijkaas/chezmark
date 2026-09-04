@@ -4,6 +4,20 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 local home = wezterm.home_dir
 
+-- see https://wezterm.org/multiplexing.html#unix-domains
+config.unix_domains = {{ name = 'unix' }}
+config.default_gui_startup_args = { 'connect', 'unix' }
+-- needed to maximize
+wezterm.on('gui-attached', function(domain)
+  local workspace = mux.get_active_workspace()
+  for _, window in ipairs(mux.all_windows()) do
+    if window:get_workspace() == workspace then
+      window:gui_window():maximize()
+    end
+  end
+end)
+
+
 config.automatically_reload_config = false
 
 -- see: https://fredrikaverpil.github.io/blog/2024/10/20/session-management-in-wezterm-without-tmux/
