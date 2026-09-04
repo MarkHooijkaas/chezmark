@@ -11,7 +11,7 @@ if status is-interactive
     abbr cmd chezmoi diff
     abbr cmap chezmoi apply
     abbr cmup chezmoi update
-    abbr cmun chezmoi iunmanaged
+    abbr cmun chezmoi unmanaged
     abbr --set-cursor='%' cme chezmoi edit --apply ~/.config/%
 
     # https://www.reddit.com/r/fishshell/comments/1he9bd8/what_are_you_abbreviations/
