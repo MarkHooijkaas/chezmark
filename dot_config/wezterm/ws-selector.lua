@@ -5,12 +5,11 @@ local workspaces = require 'workspaces'
 
 local M={}
 
-local choices = {}
-for _ , v in ipairs(workspaces) do
-  table.insert(choices, {id = v.dir, label=v.name} )
-end
-
 function M:keydef()
+  local choices = {}
+  for _ , v in ipairs(workspaces) do
+    table.insert(choices, {id = v.dir, label=v.name} )
+  end
   return {
     key = 'g',
     mods = 'CTRL|SHIFT',
