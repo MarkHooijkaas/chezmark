@@ -53,7 +53,7 @@ wezterm.on('gui-startup', function(cmd)
 end)
 
 local ws_selector = require 'ws-selector'
-table.insert(keys, ws_selector )
+table.insert(keys, ws_selector.keydef() )
 
 
 config.keys = keys

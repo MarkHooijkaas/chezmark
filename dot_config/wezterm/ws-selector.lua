@@ -3,12 +3,15 @@ local act = wezterm.action
 local home = wezterm.home_dir
 local workspaces = require 'workspaces'
 
+local M={}
+
 local choices = {}
 for _ , v in ipairs(workspaces) do
   table.insert(choices, {id = v.dir, label=v.name} )
 end
 
-return {
+function M:keydef()
+  return {
     key = 'g',
     mods = 'CTRL|SHIFT',
     action = wezterm.action_callback(function(window, pane)
@@ -53,3 +56,6 @@ return {
       )
     end),
   }
+end
+
+return M
