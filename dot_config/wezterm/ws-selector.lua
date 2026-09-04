@@ -3,7 +3,19 @@ local act = wezterm.action
 local home = wezterm.home_dir
 local workspaces = require 'workspaces'
 
+wezterm.log_info "loading module ws-selector.lua"
+
 local M={}
+
+function M:shortcuts(keys)
+  for _ , v in ipairs(workspaces) do
+    if v.key then
+      local mods=v.mods or 'CTRL|SHIFT'
+      wezterm.log_info("binding key " .. mods .. " " .. v.key .. " to workspace " .. v.name)
+      table.insert(keys, { key = v.key, mods = mods, action = act.SwitchToWorkspace({ name=v.name, spawn={ cwd=v.dir}}) })
+    end
+  end
+end
 
 function M:keydef()
   local choices = {}
@@ -17,13 +29,6 @@ function M:keydef()
       -- Here you can dynamically construct a longer list if needed
 
       local home = wezterm.home_dir
-      -- local workspaces = {
-      --   { id = home, label = 'Home' },
-      --   { id = home .. '/work', label = 'Work' },
-      --   { id = home .. '/personal', label = 'Personal' },
-      --   { id = home .. '/.config', label = 'Config' },
-      -- }
-
       window:perform_action(
         act.InputSelector {
           action = wezterm.action_callback(

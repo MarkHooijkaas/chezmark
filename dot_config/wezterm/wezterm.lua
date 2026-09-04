@@ -19,7 +19,7 @@ local keys={}
 table.insert(keys, { key = "y", mods = "CTRL|SHIFT", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) })
 -- table.insert(keys, { key = "[", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) })
 -- table.insert(keys, { key = "]", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) })
-table.insert(keys, { key = "k", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace({ name='karmah', spawn={cwd=home .. '/work/kisst/karmah'},args='top'}) })
+-- table.insert(keys, { key = "k", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace({ name='karmah', spawn={cwd=home .. '/work/kisst/karmah'},args='top'}) })
 table.insert(keys, { key = 'n', mods = 'CTRL', action = act.SwitchWorkspaceRelative(1) })
 table.insert(keys, { key = 'p', mods = 'CTRL', action = act.SwitchWorkspaceRelative(-1) })
 
@@ -54,7 +54,7 @@ end)
 
 local ws_selector = require 'ws-selector'
 table.insert(keys, ws_selector.keydef() )
-
+ws_selector:shortcuts(keys)
 
 config.keys = keys
 return config
