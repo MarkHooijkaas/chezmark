@@ -3,6 +3,11 @@ local act = wezterm.action
 local home = wezterm.home_dir
 local workspaces = require 'workspaces'
 
+local choices = {}
+for _ , v in ipairs(workspaces) do
+  table.insert(choices, {id = v.dir, label=v.name} )
+end
+
 return {
     key = 'g',
     mods = 'CTRL|SHIFT',
@@ -40,7 +45,7 @@ return {
             end
           ),
           title = 'Choose Workspace',
-          choices = workspaces,
+          choices = choices,
           fuzzy = true,
           fuzzy_description = 'Fuzzy find and/or make a workspace: ',
         },
