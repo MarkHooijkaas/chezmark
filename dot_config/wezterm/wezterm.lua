@@ -2,6 +2,7 @@ local wezterm = require 'wezterm'
 local mux = wezterm.mux
 local act = wezterm.action
 local config = wezterm.config_builder()
+local home = wezterm.home_dir
 
 config.automatically_reload_config = false
 
@@ -18,7 +19,7 @@ local keys={}
 table.insert(keys, { key = "y", mods = "CTRL|SHIFT", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) })
 -- table.insert(keys, { key = "[", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) })
 -- table.insert(keys, { key = "]", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) })
-table.insert(keys, { key = "k", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace({ name='karmah', spawn={cwd=wezterm.home_dir .. '/work/kisst/karmah'}}) })
+table.insert(keys, { key = "k", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace({ name='karmah', spawn={cwd=home .. '/work/kisst/karmah'},args='top'}) })
 table.insert(keys, { key = 'n', mods = 'CTRL', action = act.SwitchWorkspaceRelative(1) })
 table.insert(keys, { key = 'p', mods = 'CTRL', action = act.SwitchWorkspaceRelative(-1) })
 
@@ -50,6 +51,56 @@ wezterm.on('gui-startup', function(cmd)
   local tab, pane, window = mux.spawn_window(cmd or {})
   window:gui_window():maximize()
 end)
+
+-- TODO: make separate file (and class?)
+local workspaces = require 'workspaces'
+table.insert(keys, {
+    key = 'g',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action_callback(function(window, pane)
+      -- Here you can dynamically construct a longer list if needed
+
+      local home = wezterm.home_dir
+      -- local workspaces = {
+      --   { id = home, label = 'Home' },
+      --   { id = home .. '/work', label = 'Work' },
+      --   { id = home .. '/personal', label = 'Personal' },
+      --   { id = home .. '/.config', label = 'Config' },
+      -- }
+
+      window:perform_action(
+        act.InputSelector {
+          action = wezterm.action_callback(
+            function(inner_window, inner_pane, id, label)
+              if not id and not label then
+                wezterm.log_info 'cancelled'
+              else
+                wezterm.log_info('id = ' .. id)
+                wezterm.log_info('label = ' .. label)
+                inner_window:perform_action(
+                  act.SwitchToWorkspace {
+                    name = label,
+                    spawn = {
+                      label = 'Workspace: ' .. label,
+                      cwd = id,
+                    },
+                  },
+                  inner_pane
+                )
+              end
+            end
+          ),
+          title = 'Choose Workspace',
+          choices = workspaces,
+          fuzzy = true,
+          fuzzy_description = 'Fuzzy find and/or make a workspace: ',
+        },
+        pane
+      )
+    end),
+  }
+)
+
 
 config.keys = keys
 return config
