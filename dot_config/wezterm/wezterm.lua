@@ -52,54 +52,8 @@ wezterm.on('gui-startup', function(cmd)
   window:gui_window():maximize()
 end)
 
--- TODO: make separate file (and class?)
-local workspaces = require 'workspaces'
-table.insert(keys, {
-    key = 'g',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action_callback(function(window, pane)
-      -- Here you can dynamically construct a longer list if needed
-
-      local home = wezterm.home_dir
-      -- local workspaces = {
-      --   { id = home, label = 'Home' },
-      --   { id = home .. '/work', label = 'Work' },
-      --   { id = home .. '/personal', label = 'Personal' },
-      --   { id = home .. '/.config', label = 'Config' },
-      -- }
-
-      window:perform_action(
-        act.InputSelector {
-          action = wezterm.action_callback(
-            function(inner_window, inner_pane, id, label)
-              if not id and not label then
-                wezterm.log_info 'cancelled'
-              else
-                wezterm.log_info('id = ' .. id)
-                wezterm.log_info('label = ' .. label)
-                inner_window:perform_action(
-                  act.SwitchToWorkspace {
-                    name = label,
-                    spawn = {
-                      label = 'Workspace: ' .. label,
-                      cwd = id,
-                    },
-                  },
-                  inner_pane
-                )
-              end
-            end
-          ),
-          title = 'Choose Workspace',
-          choices = workspaces,
-          fuzzy = true,
-          fuzzy_description = 'Fuzzy find and/or make a workspace: ',
-        },
-        pane
-      )
-    end),
-  }
-)
+local ws_selector = require 'ws-selector'
+table.insert(keys, ws_selector )
 
 
 config.keys = keys
