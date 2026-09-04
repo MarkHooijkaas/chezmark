@@ -10,7 +10,9 @@ if status is-interactive
     abbr cma chezmoi add
     abbr cmd chezmoi diff
     abbr cmap chezmoi apply
-    abbr cmu chezmoi update
+    abbr cmup chezmoi update
+    abbr cmun chezmoi iunmanaged
+    abbr --set-cursor='%' cme chezmoi edit --apply ~/.config/%
 
     # https://www.reddit.com/r/fishshell/comments/1he9bd8/what_are_you_abbreviations/
     abbr --set-cursor='%' -- gcm 'git commit -m "%" -a'
