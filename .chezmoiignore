@@ -1,3 +1,5 @@
 *.md
 bash/
 bin/
+.config/fish/fish_variables
+.config/fish/completions
