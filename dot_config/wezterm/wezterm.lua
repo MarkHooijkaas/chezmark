@@ -19,6 +19,7 @@ end)
 
 
 config.automatically_reload_config = false
+config.window_decorations = "RESIZE"
 
 -- see: https://fredrikaverpil.github.io/blog/2024/10/20/session-management-in-wezterm-without-tmux/
 wezterm.on("update-right-status", function(window, pane)
@@ -36,6 +37,11 @@ table.insert(keys, { key = "y", mods = "CTRL|SHIFT", action = act.ShowLauncherAr
 -- table.insert(keys, { key = "k", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace({ name='karmah', spawn={cwd=home .. '/work/kisst/karmah'},args='top'}) })
 table.insert(keys, { key = 'n', mods = 'CTRL', action = act.SwitchWorkspaceRelative(1) })
 table.insert(keys, { key = 'p', mods = 'CTRL', action = act.SwitchWorkspaceRelative(-1) })
+config.key_tables = {
+  search_mode = {
+    { key = 'Enter', mods = '', action = act.ActivateCopyMode }
+  }
+}
 
 config.font_size = 20.0
 config.enable_scroll_bar = true
